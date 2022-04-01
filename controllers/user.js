@@ -1,29 +1,22 @@
 const bcryptjs = require('bcryptjs')
+const Usuario = require('./../models/usuario')
 
-const obtenerUsuarios = (req,res)=>{
-    res.json({
-        msg:'Usuarios obtenidos'
-    })
-}
-const crearUsuario = (req,res)=>{
+
+const crearUsuario = async (req,res)=>{
  
     let {nombre, correo, password} = req.body
-    password = bcryptjs.hashSync(password, 10)
+    const usuario = new Usuario({nombre, correo, password})
+    usuario.password = bcryptjs.hashSync(password, 10)
+    await usuario.save()
 
 
     res.status(200).json({
         msg:'Usuario creado',
-        usuario: {
-            id,
-            nombre,
-            correo,
-            password
-        }
+        usuario
     })
 }
 
 
 module.exports = {
-    obtenerUsuarios,
     crearUsuario
 }
