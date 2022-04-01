@@ -9,7 +9,7 @@ class Server {
     path de rutas y las funciones que debe ejecutar el server. */
     constructor(){
         this.app = express()
-        this.port = process.env.PORT
+        this.port = process.env.PORT || 3000
         this.usuariosPath = '/api/usuarios/'
         this.authPath = '/api/login/'
         this.jsonPlaceHolderPath = '/api/getData'
