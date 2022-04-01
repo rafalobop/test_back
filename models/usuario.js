@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose')
 
+//creamos el schema de usuario
 const usuarioSchema = Schema({
     nombre:{
         type:String,

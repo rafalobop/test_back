@@ -3,8 +3,20 @@ const { validarJWT } = require('../middlewares/validarJWT')
 const router = Router()
 const {getPhotos,getPosts} = require('../controllers/getExternalData')
 
-router.get('/post',[validarJWT], getPosts)
-router.get('/photos',[validarJWT], getPhotos)
+//aqui tenemos el metodo http para crear un nuevo usuario
+
+router.get('/post',
+    //aqui hy un middleware personalizado para validar los campos
+    [validarJWT], 
+    //funcion donde se ejecuta el metodo http
+    getPosts
+)
+
+    //IDEM 
+router.get('/photos',
+    [validarJWT], 
+    getPhotos
+)
 
 module.exports = router
 
