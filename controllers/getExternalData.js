@@ -15,7 +15,6 @@ const getPosts = async(req,res)=>{
         }
     } catch (error) {
         //atrapa el error
-        console.log('err', error)
         return res.status(400).json({
             msg:'Hubo un error al consultar las imagenes'
         })

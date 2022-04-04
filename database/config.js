@@ -7,7 +7,6 @@ const dbConection =  () =>{
             useNewUrlParser:true,
             useUnifiedTopology:true,
         })
-        console.log('Conexion exitosa')    
     } catch (error) {
         throw new Error('Error en la conexion a base de datos')
     }
